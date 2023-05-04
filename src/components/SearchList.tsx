@@ -1,5 +1,5 @@
 import React from 'react';
-import { IData } from '../../../types/types';
+import { IData } from '../types/types';
 import styled from 'styled-components';
 
 interface Props {

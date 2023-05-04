@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as SearchLogo } from '../../assets/search.svg';
+import { ReactComponent as SearchLogo } from '../assets/search.svg';
 
 export const SearchButton = () => {
   return (
