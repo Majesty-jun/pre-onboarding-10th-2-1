@@ -1,8 +1,14 @@
 import React from 'react';
-import './App.css';
+import { SearchSection } from './components';
+import GlobalStyles from './GlobalStyle';
 
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <GlobalStyles />
+      <SearchSection />
+    </div>
+  );
 }
 
 export default App;
