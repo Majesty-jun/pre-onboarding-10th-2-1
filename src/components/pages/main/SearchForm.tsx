@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { IData } from '../../../types/types';
 import { debounce } from '../../../utils/debounce';
 import { SearchButton, SearchInput } from '../../common';
+import { SearchList } from './SearchList';
 
 export const SearchForm = () => {
   const [data, setData] = useState<IData[]>([]);
@@ -23,6 +24,7 @@ export const SearchForm = () => {
         <SearchInput onInput={onInputHandler} />
         <SearchButton />
       </S.form>
+      <div>{data.length ? <SearchList dataList={data} /> : null}</div>
     </>
   );
 };
