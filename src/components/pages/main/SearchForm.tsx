@@ -39,5 +39,9 @@ const S = {
     justify-content: center;
     align-items: center;
     padding-right: 8px;
+
+    &:focus-within {
+      outline: #007be9 2px solid;
+    }
   `,
 };
