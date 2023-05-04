@@ -1,20 +1,18 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { IData } from '../../../types/types';
-import { debounce } from '../../../utils/debounce';
-import { SearchButton, SearchInput } from '../../common';
+import { IData } from '../types/types';
+import { debounce } from '../utils/debounce';
+import { SearchButton, SearchInput } from '.';
 import { SearchList } from './SearchList';
+import { fetchData } from '../utils/fetchData';
 
 export const SearchForm = () => {
   const [data, setData] = useState<IData[]>([]);
 
   const onInputHandler = debounce(async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value !== '') {
-      const response = await axios.get(`api/v1/search-conditions/?name=${e.target.value}`);
-      setData(response.data);
-    } else {
-      setData([]);
+      const response = await fetchData(e.target.value);
+      setData(await response?.json());
     }
   });
 
@@ -24,7 +22,7 @@ export const SearchForm = () => {
         <SearchInput onInput={onInputHandler} />
         <SearchButton />
       </S.form>
-      <div>{data.length ? <SearchList dataList={data} /> : null}</div>
+      <div>{data?.length ? <SearchList dataList={data} /> : null}</div>
     </>
   );
 };
