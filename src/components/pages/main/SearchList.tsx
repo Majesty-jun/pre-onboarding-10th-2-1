@@ -10,7 +10,7 @@ export const SearchList = ({ dataList }: Props) => {
   return (
     <S.ul>
       {dataList.map((data: IData) => (
-        <S.li key={data.id} onClick={() => console.log(data.name)}>
+        <S.li key={data.id} tabIndex={0} onClick={() => console.log(data.name)}>
           {data.name}
         </S.li>
       ))}
@@ -32,9 +32,11 @@ const S = {
   li: styled.li`
     text-align: left;
     padding: 8px 24px;
+    &:focus,
     &:hover {
       background-color: #eee;
       cursor: pointer;
+      outline: none;
     }
   `,
 };
